@@ -1,13 +1,16 @@
 import React from 'react';
 import PageHead from '../../components/header/PageHead';
 import { HomeWrapper } from './style';
+import Pentagon from '../../components/pentagon';
+import ScoreCom from '../../components/score/ScoreCom';
 
 const Home = () => {
   return (
     <>
       <PageHead title={'Home'} />
       <HomeWrapper>
-        Almost before we knew it, we had left the ground.
+        <ScoreCom />
+        <Pentagon />
       </HomeWrapper>
     </>
   );

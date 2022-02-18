@@ -4,11 +4,18 @@ export const ROUTE = {
   NOT_FOUND: '/not-found',
 };
 export const Primary = {
-  ScissorGradient: 'hsl(39, 89%, 49%) to hsl(40, 84%, 53%)',
-  PaperGradient: 'hsl(230, 89%, 62%) to hsl(230, 89%, 65%)',
-  RocGradient: 'hsl(349, 71%, 52%) to hsl(349, 70%, 56%)',
-  LizardGradient: 'hsl(261, 73%, 60%) to hsl(261, 72%, 63%)',
-  Cya: 'hsl(189, 59%, 53%) to hsl(189, 58%, 57%)',
+  ScissorGradient: 'hsl(39, 89%, 49%), hsl(40, 84%, 53%)',
+  PaperGradient: 'hsl(230, 89%, 62%), hsl(230, 89%, 65%)',
+  RocGradient: 'hsl(349, 71%, 52%), hsl(349, 70%, 56%)',
+  LizardGradient: 'hsl(261, 73%, 60%), hsl(261, 72%, 63%)',
+  Cya: 'hsl(189, 59%, 53%), hsl(189, 58%, 57%)',
+};
+export const PrimaryShadow = {
+  ScissorGradient: 'hsl(39,91%,46%)',
+  PaperGradient: 'hsl(230,74%,57%)',
+  RocGradient: 'hsl(349,71%,43%)',
+  LizardGradient: 'hsl(261,67%,57%)',
+  Cya: 'hsl(189,54%,47%)',
 };
 
 export const Neutral = {
