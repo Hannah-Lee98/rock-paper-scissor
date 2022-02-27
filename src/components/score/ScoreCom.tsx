@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ScoreComWrapper } from './style';
+import { ACTION_TYPE, useGameStore } from '../../store/reducer';
 
 const GAME_TYPE = {
   3: {
@@ -17,8 +18,7 @@ const GAME_TYPE = {
 };
 
 const ScoreCom = () => {
-  // const [gameType, setGameType] = useState<3 | 5>(3);
-  const [score, setScore] = useState<number>(12);
+  const { state, dispatch } = useGameStore();
   return (
     <ScoreComWrapper>
       <div className={'left-section'}>
@@ -31,7 +31,7 @@ const ScoreCom = () => {
       <div className={'right-section'}>
         <div className={'score-section'}>
           <div className={'label'}>Score</div>
-          <div className={'score'}>{score}</div>
+          <div className={'score'}>{state.score}</div>
         </div>
       </div>
     </ScoreComWrapper>
