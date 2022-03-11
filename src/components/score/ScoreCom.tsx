@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScoreComWrapper } from './style';
-import { ACTION_TYPE, useGameStore } from '../../store/reducer';
+import { useGameStore } from '../../store/reducer';
 
 const GAME_TYPE = {
   3: {
@@ -18,9 +18,9 @@ const GAME_TYPE = {
 };
 
 const ScoreCom = () => {
-  const { state, dispatch } = useGameStore();
+  const { state } = useGameStore();
   return (
-    <ScoreComWrapper>
+    <ScoreComWrapper className={`${state.theme ? 'dark' : 'light'}`}>
       <div className={'left-section'}>
         {Object.keys(GAME_TYPE['5']).map(key => (
           <span className={'item-name'} key={key}>

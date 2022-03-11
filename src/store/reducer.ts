@@ -4,11 +4,13 @@ import { createContext, Dispatch, useContext } from 'react';
 interface IGameStore {
   score: number;
   theme: boolean;
+  gameType: number;
 }
 
 const initState: IGameStore = {
   score: 0,
   theme: true,
+  gameType: 0,
 };
 
 const GameContext = createContext<
@@ -43,6 +45,12 @@ const reducer = (state: IGameStore, action: DispatchActionType) => {
     }
     case ACTION_TYPE.RESET_SCORE: {
       return initState;
+    }
+    case ACTION_TYPE.CHANGE_GAME_TYPE: {
+      return {
+        ...state,
+        gameType: action.payload,
+      };
     }
     default:
       return state;

@@ -1,44 +1,29 @@
 import React, { FC } from 'react';
-import { PentagonWrapper } from './style';
-import { PentagonIcon } from '../../icon/PentagonIcon';
+import { TriangleWrapper } from './style';
 import {
-  LizardCircleIcon,
   PaperCircleIcon,
   RockCircleIcon,
-  SpockCircleIcon,
   ScissorCircleIcon,
 } from '../cicle-item/GameIcon';
+import { TriangleIcon } from '../../icon/TriangleIcon';
 import { Item_type } from '../../type/general';
 
-interface IPentagon {
+interface ITriangle {
   handleChoseItem: Function;
 }
 
-const Pentagon: FC<IPentagon> = props => {
+const Triangle: FC<ITriangle> = props => {
   const { handleChoseItem } = props;
+
   return (
-    <PentagonWrapper>
-      <PentagonIcon style={{ width: 350, height: 350 }} />
+    <TriangleWrapper>
+      <TriangleIcon style={{ width: 250, height: 250 }} />
       <div
         onClick={() => {
           handleChoseItem(Item_type.PAPER);
         }}
       >
         <PaperCircleIcon />
-      </div>
-      <div
-        onClick={() => {
-          handleChoseItem(Item_type.LIZARD);
-        }}
-      >
-        <LizardCircleIcon />
-      </div>
-      <div
-        onClick={() => {
-          handleChoseItem(Item_type.SPOCK);
-        }}
-      >
-        <SpockCircleIcon />
       </div>
       <div
         onClick={() => {
@@ -54,8 +39,8 @@ const Pentagon: FC<IPentagon> = props => {
       >
         <ScissorCircleIcon />
       </div>
-    </PentagonWrapper>
+    </TriangleWrapper>
   );
 };
 
-export default Pentagon;
+export default Triangle;

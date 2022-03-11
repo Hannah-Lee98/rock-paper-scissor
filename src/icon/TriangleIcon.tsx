@@ -1,23 +1,23 @@
 import React, { FC } from 'react';
 
-export const PentagonIcon: FC<any> = props => {
+export const TriangleIcon: FC<any> = props => {
   const { style, className } = props;
   return (
     <svg
       className={className}
       style={{ ...style }}
-      width="490"
-      height="467"
-      viewBox="0 0 490 467"
+      width="434"
+      height="375"
+      viewBox="0 0 434 375"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         opacity={0.2}
-        d="M100.5 459L393 459L482.5 180L246.5 8.00002L8.00004 180L100.5 459Z"
+        id="Polygon 1"
+        d="M13.484 367.5L217 15L420.516 367.5H13.484Z"
         stroke="black"
         strokeWidth="15"
-        strokeLinejoin="round"
       />
     </svg>
   );

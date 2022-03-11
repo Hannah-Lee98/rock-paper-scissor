@@ -6,6 +6,7 @@ interface ICircleItemWrapper {
 }
 
 export const CircleItemWrapper = styled.div<ICircleItemWrapper>`
+  cursor: pointer;
   position: relative;
   width: 150px;
   height: 150px;
@@ -15,6 +16,11 @@ export const CircleItemWrapper = styled.div<ICircleItemWrapper>`
   justify-items: center;
   align-items: center;
   border-bottom: 5px solid ${p => p.colorShadow};
+  :hover {
+    transform: scale(1.1);
+    transition: all ease 0.3s;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  }
   .inner-circle {
     position: absolute;
     left: 50%;

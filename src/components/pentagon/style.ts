@@ -4,6 +4,7 @@ export const PentagonWrapper = styled.div`
   width: fit-content;
   height: auto;
   position: relative;
+  margin-top: 5rem;
   .game-icon {
     position: absolute;
   }
