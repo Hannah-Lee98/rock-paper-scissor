@@ -44,7 +44,10 @@ const reducer = (state: IGameStore, action: DispatchActionType) => {
       };
     }
     case ACTION_TYPE.RESET_SCORE: {
-      return initState;
+      return {
+        ...state,
+        score: initState.score,
+      };
     }
     case ACTION_TYPE.CHANGE_GAME_TYPE: {
       return {
