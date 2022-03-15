@@ -1,5 +1,6 @@
-import React, { HTMLAttributes, FC } from 'react';
+import React, { HTMLAttributes, FC, useCallback } from 'react';
 import styled from 'styled-components';
+import { useAudio } from '../audio-player/AudioPlayer';
 
 interface IButton {
   size?: 'lg' | 'md' | 'sm';
@@ -7,11 +8,25 @@ interface IButton {
 }
 
 const Button: FC<IButton & HTMLAttributes<Element>> = props => {
-  const { size, type, children, className, ...rest } = props;
+  const { size, type, children, className, onClick, ...rest } = props;
+
+  const { toggle } = useAudio('/sound/click-btn.wav');
+
+  const handleClick = useCallback(
+    async e => {
+      toggle();
+      setTimeout(() => {
+        if (onClick) onClick(e);
+      }, 10);
+    },
+    [onClick, toggle],
+  );
+
   return (
     <ButtonWrapper
       {...rest}
       className={`${className} ${size || ''} ${type || ''}`}
+      onClick={handleClick}
     >
       {children}
     </ButtonWrapper>

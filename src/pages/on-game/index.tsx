@@ -26,19 +26,20 @@ import ModalRule from '../../components/rules/ModalRule';
 import Nav from '../../components/header/Nav';
 import Button from '../../components/button/Button';
 import CircleShadow from '../../components/circle-shadow';
+import { useAudio } from '../../components/audio-player/AudioPlayer';
 
 export const renderItem = (itemType: null | Item_type): ReactNode => {
   switch (itemType) {
     case Item_type.LIZARD:
-      return <LizardCircleIcon />;
+      return <LizardCircleIcon hasSound={false} />;
     case Item_type.PAPER:
-      return <PaperCircleIcon />;
+      return <PaperCircleIcon hasSound={false} />;
     case Item_type.ROCK:
-      return <RockCircleIcon />;
+      return <RockCircleIcon hasSound={false} />;
     case Item_type.SCISSOR:
-      return <ScissorCircleIcon />;
+      return <ScissorCircleIcon hasSound={false} />;
     case Item_type.SPOCK:
-      return <SpockCircleIcon />;
+      return <SpockCircleIcon hasSound={false} />;
     case null:
     default:
       return;
@@ -53,9 +54,17 @@ const OnGame = () => {
     null,
   );
 
-  const handleChoseItem = useCallback((item: Item_type) => {
-    setYourChosenItem(item);
-  }, []);
+  const { toggle } = useAudio('/sound/spin-sound.wav');
+  const { toggle: winToggle } = useAudio('/sound/win-sound.mp3');
+  const { toggle: loseToggle } = useAudio('/sound/lose-sound.mp3');
+
+  const handleChoseItem = useCallback(
+    (item: Item_type) => {
+      setYourChosenItem(item);
+      toggle();
+    },
+    [toggle],
+  );
 
   useEffect(() => {
     if (yourChosenItem) {
@@ -90,8 +99,13 @@ const OnGame = () => {
 
     const timeout = setTimeout(() => {
       setIsLoading(false);
-      if (doYouWin) dispatch({ type: ACTION_TYPE.ADD_SCORE });
-    }, 1500);
+      if (doYouWin) {
+        winToggle();
+        dispatch({ type: ACTION_TYPE.ADD_SCORE });
+      } else {
+        if (robotsChosenItem !== yourChosenItem) loseToggle();
+      }
+    }, 2300);
 
     return () => {
       clearTimeout(timeout);

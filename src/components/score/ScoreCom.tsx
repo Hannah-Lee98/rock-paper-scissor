@@ -22,7 +22,7 @@ const ScoreCom = () => {
   return (
     <ScoreComWrapper className={`${state.theme ? 'dark' : 'light'}`}>
       <div className={'left-section'}>
-        {Object.keys(GAME_TYPE['5']).map(key => (
+        {Object.keys(GAME_TYPE[state.gameType as 3 | 5] || []).map(key => (
           <span className={'item-name'} key={key}>
             {key}
           </span>

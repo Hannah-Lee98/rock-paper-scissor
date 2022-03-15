@@ -26,6 +26,9 @@ export const ScoreComWrapper = styled.div`
 
   .left-section {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .item-name {
     display: block;

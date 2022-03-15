@@ -5,12 +5,14 @@ interface IGameStore {
   score: number;
   theme: boolean;
   gameType: number;
+  gameSound?: boolean;
 }
 
 const initState: IGameStore = {
   score: 0,
   theme: true,
   gameType: 0,
+  gameSound: true,
 };
 
 const GameContext = createContext<
@@ -53,6 +55,12 @@ const reducer = (state: IGameStore, action: DispatchActionType) => {
       return {
         ...state,
         gameType: action.payload,
+      };
+    }
+    case ACTION_TYPE.SWTCH_SOUND: {
+      return {
+        ...state,
+        gameSound: !state.gameSound,
       };
     }
     default:
